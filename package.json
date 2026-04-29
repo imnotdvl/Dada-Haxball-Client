@@ -1,0 +1,40 @@
+{
+  "name": "haxball-client-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "",
+  "scripts": {
+    "start": "electron .",
+    "pack": "npx electron-packager . \"MyClient\" --platform=win32 --arch=x64 --icon=icon.ico --overwrite",
+    "dist": "electron-builder",
+    "winstaller": "node build.js"
+  },
+  "build": {
+    "appId": "com.template.client",
+    "productName": "MyClient",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
+    }
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
+    "electron-winstaller": "^5.4.0"
+  }
+}
